@@ -1,0 +1,72 @@
+<h1>Description</h1>
+
+<p>A simple way to download information of TV Shows available on TVDB database</p>
+
+<h1>Installation</h1>
+
+<p>Simplest way to install <code>tvdbwebservice</code> is to use <a href="http://npmjs.org">npm</a>, just <code>npm
+install tvdbwebservice</code> which will download tvdbwebservice and all dependencies.</p>
+
+<h1>Usage</h1>
+
+<p>No extensive tutorials required. Here&rsquo;s some examples.</p>
+
+<h2>Just Start Using</h2>
+
+<p>Initialize your App</p>
+
+<p>```coffeescript
+tvdbWebService = require &lsquo;tvdbwebservice&rsquo;
+tvdbWebService.setTvdbApiKey &lsquo;yourTvdbApiKey&rsquo;</p>
+
+<p>```</p>
+
+<p>To Search for a Series just provide its name</p>
+
+<p>```coffeescript
+tvdbWebService.getSeriesByName name, (data) ->
+  console.log data
+  return</p>
+
+<p>```</p>
+
+<p>Download Series Information using its TVDB ID</p>
+
+<p>```coffeescript
+tvdbWebService.getSeriesOnlyById id, (data) ->
+  console.log data
+  return</p>
+
+<p>```</p>
+
+<p>Download Complete Series Information along with Cast Description
+and Banners</p>
+
+<p>```coffeescript
+tvdbWebService.getSeriesPlusActorsPlusBanners id, (data) ->
+  console.log data
+  return</p>
+
+<p>```</p>
+
+<p>Download All Banners using Series TVDB ID</p>
+
+<p>```coffeescript
+tvdbWebService.getBannersForSeriesWithId id, (data) ->
+  console.log data
+  return</p>
+
+<p>```</p>
+
+<p>Download Cast Description using Series TVDB ID</p>
+
+<p>```coffeescript
+tvdbWebService.getActorsForSeriesWithId id, (data) ->
+  console.log data
+  return</p>
+
+<p>```</p>
+
+<h2>So you wanna some JSON?</h2>
+
+<p>Just parse the the data received <code>JSON.parse(data)</code> to get the result in JSON form</p>
