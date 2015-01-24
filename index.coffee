@@ -51,7 +51,7 @@
     data: '',
     ....,
     actorsDetails: [], --->objects of actors
-    banner: [] --->objects of banners
+    banners: [] --->objects of banners
   }
 
 ###
