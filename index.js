@@ -72,7 +72,7 @@
   requestActorsForSeriesWithId = function(id, callback) {
     var options;
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/actors.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/actors.xml",
       "type": "actors"
     };
     return httpRequest(options, function(data) {
@@ -83,7 +83,7 @@
   requestBannersForSeriesWithId = function(id, callback) {
     var options;
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/banners.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/banners.xml",
       "type": "banners"
     };
     return httpRequest(options, function(data) {
@@ -105,7 +105,7 @@
   requestForSeriesWithId = function(id, callback) {
     var options;
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/all/en.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/all/en.xml",
       "type": "seriesById"
     };
     return httpRequest(options, function(data) {
@@ -125,7 +125,7 @@
           "id": "" + series.seriesid,
           "name": "" + series.SeriesName,
           "language": "" + series.language,
-          "banner": series.banner ? "http://www.thetvdb.com/banners/" + series.banner : "",
+          "banner": series.banner ? "http://thetvdb.com/banners/" + series.banner : "",
           "overview": "" + series.Overview,
           "firstAired": "" + series.FirstAired,
           "network": "" + series.Network,
@@ -140,7 +140,7 @@
   requestSeriesOnlyBy = function(id, callback) {
     var options;
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/all/en.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + id + "/all/en.xml",
       "type": "seriesById"
     };
     return httpRequest(options, function(data) {
@@ -209,21 +209,21 @@
   getFullSeriesData = function(value, callback1, callback2, callback3) {
     var options;
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/all/en.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/all/en.xml",
       "type": "seriesById"
     };
     httpRequest(options, function(dataChunk1) {
       callback1(dataChunk1);
     });
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/actors.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/actors.xml",
       "type": "actors"
     };
     httpRequest(options, function(dataChunk2) {
       callback2(dataChunk2);
     });
     options = {
-      "url": "http://www.thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/banners.xml",
+      "url": "http://thetvdb.com/api/" + APPCONFIG.tvdbApiKey + "/series/" + value + "/banners.xml",
       "type": "banners"
     };
     httpRequest(options, function(dataChunk3) {
@@ -289,7 +289,7 @@
     banner = JSON.parse(banner);
     return JSON.stringify({
       "id": "" + banner.id,
-      "url": banner.BannerPath ? "http://www.thetvdb.com/banners/" + banner.BannerPath : "",
+      "url": banner.BannerPath ? "http://thetvdb.com/banners/" + banner.BannerPath : "",
       "type": "" + banner.BannerType,
       "resolution": "" + banner.BannerType2,
       "colors": "" + banner.Colors,
@@ -297,8 +297,8 @@
       "rating": "" + banner.Rating,
       "ratingCount": "" + banner.RatingCount,
       "seriesName": "" + banner.SeriesName,
-      "thumbnailUrl": banner.ThumbnailPath ? "http://www.thetvdb.com/banners/" + banner.ThumbnailPath : "",
-      "vignetteUrl": banner.VignettePath ? "http://www.thetvdb.com/banners/" + banner.VignettePath : ""
+      "thumbnailUrl": banner.ThumbnailPath ? "http://thetvdb.com/banners/" + banner.ThumbnailPath : "",
+      "vignetteUrl": banner.VignettePath ? "http://thetvdb.com/banners/" + banner.VignettePath : ""
     });
   };
 
@@ -309,7 +309,7 @@
       "name": "" + actor.Name,
       "role": "" + actor.Role,
       "sortOrder": "" + actor.SortOrder,
-      "imageUrl": actor.Image ? "http://www.thetvdb.com/banners/" + actor.Image : ""
+      "imageUrl": actor.Image ? "http://thetvdb.com/banners/" + actor.Image : ""
     });
   };
 
@@ -341,7 +341,7 @@
       "airsAfterSeason": "" + episode.airsafter_season,
       "airsBeforeSeason": "" + episode.airsbefore_season,
       "airsBeforeEpisode": "" + episode.airsbefore_episode,
-      "thumbnailUrl": episode.filename ? "http://www.thetvdb.com/banners/" + episode.filename : "",
+      "thumbnailUrl": episode.filename ? "http://thetvdb.com/banners/" + episode.filename : "",
       "lastUpdated": "" + episode.lastupdated,
       "seasonId": "" + episode.seasonid,
       "seriesId": "" + episode.seriesid,
@@ -389,10 +389,10 @@
           "runningStatus": "" + seriesData.Status,
           "added": "" + seriesData.added,
           "addedBy": "" + seriesData.addedBy,
-          "bannerUrl": seriesData.banner ? "http://www.thetvdb.com/banners/" + seriesData.banner : "",
-          "fanartUrl": seriesData.fanart ? "http://www.thetvdb.com/banners/" + seriesData.fanart : "",
+          "bannerUrl": seriesData.banner ? "http://thetvdb.com/banners/" + seriesData.banner : "",
+          "fanartUrl": seriesData.fanart ? "http://thetvdb.com/banners/" + seriesData.fanart : "",
           "lastUpdated": "" + seriesData.lastupdated,
-          "poster": seriesData.poster ? "http://www.thetvdb.com/banners/" + seriesData.poster : "",
+          "poster": seriesData.poster ? "http://thetvdb.com/banners/" + seriesData.poster : "",
           "zap2itId": "" + seriesData.zap2it_id,
           "seasons": [],
           "actorsDetails": [],

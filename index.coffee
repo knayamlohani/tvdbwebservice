@@ -67,7 +67,7 @@ app = express()
 # makes http request to tvdb to get actors details for series with given id
 requestActorsForSeriesWithId = (id, callback) ->
   options =
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/actors.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/actors.xml"
     "type" : "actors"
   httpRequest options, (data) ->
     callback data
@@ -76,7 +76,7 @@ requestActorsForSeriesWithId = (id, callback) ->
 # makes http request to tvdb to get banners for series with given id
 requestBannersForSeriesWithId = (id, callback) ->
   options =
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/banners.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/banners.xml"
     "type" : "banners"
   httpRequest options, (data) ->
     try
@@ -93,7 +93,7 @@ requestBannersForSeriesWithId = (id, callback) ->
 # makes http request to tvdb to get details for series with given id
 requestForSeriesWithId = (id, callback) ->
   options = 
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/all/en.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/all/en.xml"
     "type" : "seriesById" 
   httpRequest options, (data) ->
     callback data
@@ -111,7 +111,7 @@ generateSearchResults = (data) ->
         "id"         : "#{series.seriesid}",
         "name"       : "#{series.SeriesName}",
         "language"   : "#{series.language}",
-        "banner"     : if series.banner then "http://www.thetvdb.com/banners/#{series.banner}" else "",
+        "banner"     : if series.banner then "http://thetvdb.com/banners/#{series.banner}" else "",
         "overview"   : "#{series.Overview}",
         "firstAired" : "#{series.FirstAired}",
         "network"    : "#{series.Network}",
@@ -121,7 +121,7 @@ generateSearchResults = (data) ->
 
 requestSeriesOnlyBy = (id, callback) ->
   options = 
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/all/en.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{id}/all/en.xml"
     "type" : "seriesById" 
   httpRequest options, (data) ->
     #fullData object created as using the common function fro creating series only object (while requesting full data & seriesonly data)
@@ -198,14 +198,14 @@ requestSeriesBy = (parameter,value,callback) ->
 
 getFullSeriesData = (value, callback1, callback2, callback3) ->
   options = 
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/all/en.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/all/en.xml"
     "type" : "seriesById" 
   httpRequest options, (dataChunk1) ->
     callback1 dataChunk1
     return
 
   options =
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/actors.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/actors.xml"
     "type" : "actors"
   httpRequest options, (dataChunk2) ->
     callback2 dataChunk2
@@ -213,7 +213,7 @@ getFullSeriesData = (value, callback1, callback2, callback3) ->
     
     
   options = 
-    "url"  : "http://www.thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/banners.xml"
+    "url"  : "http://thetvdb.com/api/#{APPCONFIG.tvdbApiKey}/series/#{value}/banners.xml"
     "type" : "banners"
   httpRequest options, (dataChunk3) -> 
     callback3 dataChunk3
@@ -284,7 +284,7 @@ generateBannerObect = (banner) ->
   banner = JSON.parse banner
   JSON.stringify
     "id"           : "#{banner.id}",
-    "url"          : if banner.BannerPath then "http://www.thetvdb.com/banners/#{banner.BannerPath}" else "",
+    "url"          : if banner.BannerPath then "http://thetvdb.com/banners/#{banner.BannerPath}" else "",
     "type"         : "#{banner.BannerType}",
     "resolution"   : "#{banner.BannerType2}",
     "colors"       : "#{banner.Colors}",
@@ -292,8 +292,8 @@ generateBannerObect = (banner) ->
     "rating"       : "#{banner.Rating}",
     "ratingCount"  : "#{banner.RatingCount}",
     "seriesName"   : "#{banner.SeriesName}",
-    "thumbnailUrl" : if banner.ThumbnailPath then "http://www.thetvdb.com/banners/#{banner.ThumbnailPath}" else "",
-    "vignetteUrl"  : if banner.VignettePath then "http://www.thetvdb.com/banners/#{banner.VignettePath}" else ""
+    "thumbnailUrl" : if banner.ThumbnailPath then "http://thetvdb.com/banners/#{banner.ThumbnailPath}" else "",
+    "vignetteUrl"  : if banner.VignettePath then "http://thetvdb.com/banners/#{banner.VignettePath}" else ""
 
 generateActorObject = (actor) ->
   actor = JSON.parse actor
@@ -302,7 +302,7 @@ generateActorObject = (actor) ->
     "name"      : "#{actor.Name}",
     "role"      : "#{actor.Role}",
     "sortOrder" : "#{actor.SortOrder}",
-    "imageUrl"  : if actor.Image then "http://www.thetvdb.com/banners/#{actor.Image}" else ""
+    "imageUrl"  : if actor.Image then "http://thetvdb.com/banners/#{actor.Image}" else ""
 
 generateEpisodeObject = (episode) ->
   episode = JSON.parse episode
@@ -332,7 +332,7 @@ generateEpisodeObject = (episode) ->
     "airsAfterSeason"       : "#{episode.airsafter_season}",
     "airsBeforeSeason"      : "#{episode.airsbefore_season}",
     "airsBeforeEpisode"     : "#{episode.airsbefore_episode}",
-    "thumbnailUrl"          : if episode.filename then "http://www.thetvdb.com/banners/#{episode.filename}" else ""
+    "thumbnailUrl"          : if episode.filename then "http://thetvdb.com/banners/#{episode.filename}" else ""
     "lastUpdated"           : "#{episode.lastupdated}",
     "seasonId"              : "#{episode.seasonid}",
     "seriesId"              : "#{episode.seriesid}",
@@ -382,10 +382,10 @@ generateSeriesOnlyObject = (data) ->
         "runningStatus"   : "#{seriesData.Status}",
         "added"           : "#{seriesData.added}",
         "addedBy"         : "#{seriesData.addedBy}",
-        "bannerUrl"       : if seriesData.banner then "http://www.thetvdb.com/banners/#{seriesData.banner}" else ""
-        "fanartUrl"       : if seriesData.fanart then "http://www.thetvdb.com/banners/#{seriesData.fanart}" else ""
+        "bannerUrl"       : if seriesData.banner then "http://thetvdb.com/banners/#{seriesData.banner}" else ""
+        "fanartUrl"       : if seriesData.fanart then "http://thetvdb.com/banners/#{seriesData.fanart}" else ""
         "lastUpdated"     : "#{seriesData.lastupdated}",
-        "poster"          : if seriesData.poster then "http://www.thetvdb.com/banners/#{seriesData.poster}" else "",
+        "poster"          : if seriesData.poster then "http://thetvdb.com/banners/#{seriesData.poster}" else "",
         "zap2itId"        : "#{seriesData.zap2it_id}",
         "seasons"         : [],
         "actorsDetails"   : [],
