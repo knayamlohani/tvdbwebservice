@@ -72,6 +72,17 @@ tvdbWebService.getActorsForSeriesWithId id, (data) ->
 
 ```
 
+Download details for Episode aired on a given Date for Series with ID
+
+```coffeescript
+tvdbWebService.getEpisodeAiredOnDateForSeriesWithId airDate, id, (data) ->
+  console.log data
+  return
+
+```
+
+
+
 
 So you wanna some JSON?
 -----------------------

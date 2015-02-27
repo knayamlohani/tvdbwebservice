@@ -1,7 +1,7 @@
 {
 	"name" : "tvdbwebservice",
 	"description": "Node.js module to download information about your favourite TV Shows from TVDB",
-	"version" : "0.0.4",
+	"version" : "0.0.5",
 	"main": "index.js",
 	"author": "Mayank Lohani",
 	"keywords": ["tv", "tvseries", "tvdb","tvshows","tvdbwebservice"],

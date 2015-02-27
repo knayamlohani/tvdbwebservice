@@ -473,6 +473,29 @@ exports.getBannersForSeriesWithId = (id, callback) ->
     return
   return
 
+exports.getEpisodeAiredOnDateForSeriesWithId = (airDate, id, callback) ->
+  requestEpisodeAiredOnDateForSeriesWithId airDate, id, (episodesData) ->
+    episodesData = JSON.parse episodesData
+    ###
+    episodesArray = []
+
+    for episode in episodesData
+      episodesArray.push generateEpisodeObject episode
+
+    callback JSON.stringify episodesArray, null, 4
+    ###
+    episode = if episodesData.Data && episodesData.Data.Episode then episodesData.Data.Episode else ""
+    callback generateEpisodeObject JSON.stringify episode
+  return
+
+
+requestEpisodeAiredOnDateForSeriesWithId = (airDate, id, callback) ->
+  options = 
+    "url"  : "http://thetvdb.com/api/GetEpisodeByAirDate.php?apikey=#{APPCONFIG.tvdbApiKey}&seriesid=#{id}&airdate=#{airDate}"
+    "type" : "" 
+  httpRequest options, (data) ->
+    callback data
+    return
 
 
 

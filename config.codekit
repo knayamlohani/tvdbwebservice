@@ -3,12 +3,12 @@
 "creatorBuild": "17945",
 "files": {
 	"\/index.coffee": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"fileType": 32,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/index.coffee",
-		"minifyOutput": 0,
+		"minifyOutput": 1,
 		"outputAbbreviatedPath": "\/index.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
