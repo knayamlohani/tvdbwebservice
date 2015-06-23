@@ -484,7 +484,7 @@ exports.getEpisodeAiredOnDateForSeriesWithId = (airDate, id, callback) ->
 
     callback JSON.stringify episodesArray, null, 4
     ###
-    episode = if episodesData.Data && episodesData.Data.Episode then episodesData.Data.Episode else ""
+    episode = if episodesData.Data && episodesData.Data.Episode then episodesData.Data.Episode[0] else ""
     callback generateEpisodeObject JSON.stringify episode
   return
 
